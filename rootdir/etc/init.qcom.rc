@@ -26,3 +26,11 @@
 on init
     # Disable vendor overlay
     mount none /vendor/lost+found /vendor/overlay bind
+
+on boot
+    # Fingerprint
+    chown system system /sys/class/lcd/panel/finger_mask_mode
+    chown system system /sys/class/lcd/panel/mask_brightness
+
+    # TSP
+    chown system system /sys/class/sec/tsp/cmd
