@@ -22,6 +22,7 @@ DEVICE_PATH := device/samsung/r5q
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 
 # FOD
+TARGET_FOD_ALWAYS_ON_HBM := true
 TARGET_SURFACEFLINGER_FOD_LIB := //$(DEVICE_PATH):libfod_extension.r5q
 
 # Gralloc
