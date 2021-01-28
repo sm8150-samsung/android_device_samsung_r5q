@@ -103,7 +103,7 @@ Return<void> FingerprintInscreen::onFinishEnroll() { return Void(); }
 Return<void> FingerprintInscreen::onPress() { 
     set(FP_GREEN_CIRCLE, "1");
     std::thread([this]() {
-        std::this_thread::sleep_for(std::chrono::milliseconds(36));
+        std::this_thread::sleep_for(std::chrono::milliseconds(34));
         mSehBiometricsFingerprintService->sehRequest(SEM_FINGER_STATE, 
             SEM_PARAM_PRESSED, stringToVec(SEM_AOSP_FQNAME), FingerprintInscreen::requestResult);
     }).detach();
@@ -119,7 +119,7 @@ Return<void> FingerprintInscreen::onRelease() {
 
 Return<void> FingerprintInscreen::onShowFODView() { 
     std::thread([]() {
-        std::this_thread::sleep_for(std::chrono::milliseconds(16));
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
         set(FOD_DIMMING_PATH, "1");
     }).detach();
     return Void(); 
@@ -127,7 +127,10 @@ Return<void> FingerprintInscreen::onShowFODView() {
 
 Return<void> FingerprintInscreen::onHideFODView() { 
     set(FP_GREEN_CIRCLE, "0");
-    set(FOD_DIMMING_PATH, "0");
+    std::thread([]() {
+        std::this_thread::sleep_for(std::chrono::milliseconds(23));
+        set(FOD_DIMMING_PATH, "0");
+    }).detach();
     return Void(); 
 }
 
