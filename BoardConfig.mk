@@ -22,17 +22,17 @@ DEVICE_PATH := device/samsung/r5q
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 
 # Board
-TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
+# TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
 
-# FOD
-TARGET_FOD_ALWAYS_ON_HBM := true
-TARGET_SURFACEFLINGER_FOD_LIB := //$(DEVICE_PATH):libfod_extension.r5q
+# # FOD
+# TARGET_FOD_ALWAYS_ON_HBM := true
+# TARGET_SURFACEFLINGER_FOD_LIB := //$(DEVICE_PATH):libfod_extension.r5q
 
-# Gralloc
-TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x2000U | 0x400000000LL
+# # Gralloc
+# TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x2000U | 0x400000000LL
 
-# HIDL
-DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
+# # HIDL
+# DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 2
@@ -71,7 +71,9 @@ BOARD_SUPER_PARTITION_GROUPS := samsung_dynamic_partitions
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_SIZE := 8048869376
 BOARD_SAMSUNG_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     system \
-    product
+    product \
+    vendor \
+    odm
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
@@ -80,8 +82,8 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # SELinux
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
-    $(DEVICE_PATH)/sepolicy/private
+# BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
+#     $(DEVICE_PATH)/sepolicy/private
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
