@@ -13,10 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := $(call my-dir)
+TARGET_KERNEL_ADDITIONAL_FLAGS := \
+    CONFIG_MACH_R5Q_EUR_OPEN=n \
+    CONFIG_MACH_R5Q_USA_OPEN=y
 
-ifneq ($(filter r5q r5que, $(TARGET_DEVICE)),)
-
-include $(call all-makefiles-under,$(LOCAL_PATH))
-
-endif
+# Inherit common board flags
+include device/samsung/r5q/BoardConfig-device.mk
